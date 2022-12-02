@@ -12,12 +12,12 @@
             <h2>Login</h2>
 
             <!-- <input id="acid" name="acno" (change)="acnoChange($event)" type="text" [placeholder] = data> -->
-            <input id="acid" name="acno" #acno type="text" [placeholder] = data>
+            <input id="acid" name="acno" [(ngModel)]="acno"  type="text" [placeholder] = data>
             <br>
             <!-- <input id="pid" name="pwd" (change)="pswChange($event)" type="password" placeholder="Enter password"> -->
-            <input id="pid" name="pwd" #psw type="password" placeholder="Enter password">
+            <input id="pid" name="pwd" [(ngModel)]="psw" type="password" placeholder="Enter password">
             <br>
-            <button type="button" (click)="login(acno,psw)">Login</button>
+            <button type="button" (click)="login()">Login</button>
             <br>
             <a href="./register.html">Register Here</a>
         </div>

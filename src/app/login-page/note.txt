@@ -15,3 +15,20 @@ html-view
         1.2.1 event binding  (eventName) = "method name()"   
         1.2.2 event binding using $event (eventName) = "methodname($event)" 
         1.2.3 event binding using template rendering variable  #variable
+
+
+2. Two Way binding
+
+    2.1 ngmodel          [(ngmodel)]="value"
+                         FormsModule
+
+
+
+Redirection in angular
+-----------------------
+
+navigateByUrl -method used to Redirection
+
+router        - class : navigateByUrlis present in this class
+
+

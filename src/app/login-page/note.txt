@@ -29,6 +29,33 @@ Redirection in angular
 
 navigateByUrl -method used to Redirection
 
-router        - class : navigateByUrlis present in this class
+router        - class : navigateByUrl is present in this class
+
+AppRoutingModule -module
 
 
+dependency injection :-
+
+- is used when we need method of one class to be used in another class
+- it is used in constructor
+- here we should use navigateByUrl class in 
+
+
+STEPS FOR DEP INJECTION:
+
+    - provide access specifier: public/private
+    - give a variable name
+    - a class name 
+    - eg: private varibleName:Classname
+
+
+
+Angular Services :-
+-used when there is redundent data
+-contents present in this can be accessed by all 
+
+How to create a Services
+-created as 2 files, one ts file and one specification file
+-since folder is not created, we create an external folder
+-open folderand open terminal
+-command for creating service 'ng g s service-name'

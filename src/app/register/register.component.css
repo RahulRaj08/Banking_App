@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script:wght@700&family=Manrope&family=Montserrat:wght@200;400;600&family=Nunito+Sans:wght@200&family=Playfair+Display&family=Poppins:wght@400;600&family=Tangerine&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body{
+    background-color: rgb(87, 162, 190);
+}
+
+.register{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.register_form{
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 25px;
+    background-color: #fff;
+    color: #ffffff;
+}
+
+input{
+    margin-bottom: 10px;
+    width: 300px;
+    height: 5vh;
+    /* border-radius: 5px; */
+    padding-inline: 5px;
+    border: none;
+    border-bottom: 1px solid grey;
+}
+
+button{
+    width: 80%;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-block: 10px;
+}
+
+h2{
+    color: rgb(42, 37, 37);;
+    text-align: center;
+    margin-block: 10px;
+}

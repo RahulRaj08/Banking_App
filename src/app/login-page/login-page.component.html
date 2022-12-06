@@ -1,4 +1,4 @@
-<body>
+<form (ngSubmit)="login()">
 
     <!-- <div>
         <h1>{{aim}}</h1>
@@ -17,9 +17,9 @@
             <!-- <input id="pid" name="pwd" (change)="pswChange($event)" type="password" placeholder="Enter password"> -->
             <input id="pid" name="pwd" [(ngModel)]="psw" type="password" placeholder="Enter password">
             <br>
-            <button type="button" (click)="login()">Login</button>
+            <button type="submit" >Login</button>
             <br>
             <a routerLink="register">Register Here</a>
         </div>
     </div>
-</body>
+</form>

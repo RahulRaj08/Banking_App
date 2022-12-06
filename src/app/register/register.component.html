@@ -1,19 +1,21 @@
-<div class="register">
+<form (ngSubmit)="register()">
+    <div class="register">
 
-        
 
-    <div class="register_form">
-        <h2>Register</h2>
 
-        <input id="user" name="uname" [(ngModel)] = "uname" type="text" placeholder ="Enter Username">
-        <br>
-        <!-- <input id="acid" name="acno" (change)="acnoChange($event)" type="text" [placeholder] = data> -->
-        <input id="acid" name="acno" [(ngModel)] ="acno" type="text" placeholder = "Enter Account Number ">
-        <br>
-        <!-- <input id="pid" name="pwd" (change)="pswChange($event)" type="password" placeholder="Enter password"> -->
-        <input id="pid" name="psw"  [(ngModel)] ="psw" type="password" placeholder="Enter password">
-        <br>
-        <button type="submit" (click)="register()">Register</button>
-        <br>
+        <div class="register_form" >
+            <h2>Register</h2>
+
+            <input id="user" name="uname" [(ngModel)]="uname" type="text" placeholder="Enter Username">
+            <br>
+            <!-- <input id="acid" name="acno" (change)="acnoChange($event)" type="text" [placeholder] = data> -->
+            <input id="acid" name="acno" [(ngModel)]="acno" type="text" placeholder="Enter Account Number ">
+            <br>
+            <!-- <input id="pid" name="pwd" (change)="pswChange($event)" type="password" placeholder="Enter password"> -->
+            <input id="pid" name="psw" [(ngModel)]="psw" type="password" placeholder="Enter password">
+            <br>
+            <button type="submit">Register</button>
+            <br>
+        </div>
     </div>
-</div>
+</form>

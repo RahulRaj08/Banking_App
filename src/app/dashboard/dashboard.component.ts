@@ -15,10 +15,12 @@ export class DashboardComponent {
   acno1=''
   psw1=''
   amnt1=''
-  
+  user=''
   
 
-  constructor(private ds:DataService){ }
+  constructor(private ds:DataService){ 
+    this.user=this.ds.currentUser
+  }
 
 
   deposit(){
@@ -50,9 +52,7 @@ export class DashboardComponent {
       alert(`${amnt1} debited from your account and your balance is ${result}`)
 
     }
-    else{
-      alert('incorrect acno or password')
-    }
+  
 
     
   }

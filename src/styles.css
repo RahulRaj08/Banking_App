@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bungee+Spice&family=Dancing+Script:wght@700&family=Manrope&family=Montserrat:wght@200;400;600&family=Nunito+Sans:wght@200&family=Playfair+Display&family=Poppins:wght@400;600&family=Tangerine&display=swap');
+
+
 *{
     padding: 0;
     margin: 0;
@@ -7,6 +10,6 @@
 }
 
 body{
-    background-image: url("./assets/pexels-david-mcbee-730547.jpg");
+    background-image: url("./assets/glass-effect-banking-card-with-flowing-realistic-geometry-elements-dark-background_87561-588.webp");
     background-size: cover;
 }

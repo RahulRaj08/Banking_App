@@ -39,6 +39,7 @@ input{
     padding-inline: 5px;
     border: none;
     border-bottom: 1px solid grey;
+    font-size: 15px;
 }
 
 button{
@@ -47,6 +48,7 @@ button{
     border-radius: 10px;
     cursor: pointer;
     margin-block: 10px;
+    font-size: 20px;
 }
 
 h2{

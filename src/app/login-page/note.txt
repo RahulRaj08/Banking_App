@@ -59,3 +59,19 @@ How to create a Services
 -since folder is not created, we create an external folder
 -open folderand open terminal
 -command for creating service 'ng g s service-name'
+
+
+
+
+ANGULAR DIRECTIVES
+
+1. Structural Directives : they are used to handle structured datas(array,object) in view(html) of a component
+
+    -ngFor: can be applied in html to access elements from array ( using for loop)
+
+
+
+
+* Forms can be created in two ways in angular:
+    1. Template driven form 
+    2. Model Driven form(easy to validate using inbuilt angular methods)   

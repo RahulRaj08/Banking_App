@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from 'services/data.service';
 
@@ -13,9 +14,7 @@ export class LoginPageComponent {
 
   data = "Enter your account number: "
 
-  acno=''
-
-  psw=''
+  
  
   userDetails:any = {
     1000:{acno:1000,username:"rahul",password:123, balance:0},
@@ -24,26 +23,36 @@ export class LoginPageComponent {
     1003:{acno:1003,username:"gwen",password:123,  balance:0},
     1004:{acno:1004,username:"MJ",password:123, balance:0},
   }
+ 
 
-  constructor(private router:Router, private ds:DataService){ }
+  constructor(private router:Router, private ds:DataService,private fb:FormBuilder){ }
+
+  loginForm = this.fb.group({acno:['',[Validators.required,Validators.pattern('[0-9]+')]],psw:['',[Validators.required,Validators.pattern('[0-9]+')]]}) //modelForm
 
   login(){
 
-    var acno = this.acno
-    var psw = this.psw
+    var acno = this.loginForm.value.acno
+    var psw = this.loginForm.value.psw
     
+    if(this.loginForm.valid){
 
-    const result = this.ds.login(acno,psw)
+      const result = this.ds.login(acno,psw)
 
 
-    if(result){
-      alert("login successful")
-      this.router.navigateByUrl('dashboard')
+      if(result){
+        alert("login successful")
+        this.router.navigateByUrl('dashboard')
+      }
+      else{
+        alert('incorrect username or password')
+      }
+  
+
     }
     else{
-      alert('incorrect username or password')
+      alert('Invalid Form')
     }
-
+    
     // if(acno in userDetails){
     //   if(psw == userDetails[acno]["password"]){
     //     alert('login success')
@@ -83,17 +92,17 @@ export class LoginPageComponent {
   // }
 
 
-  acnoChange(event:any){
-    this.acno = event.target.value
-    console.log(this.acno);
+  // acnoChange(event:any){
+  //   this.acno = event.target.value
+  //   console.log(this.acno);
     
 
-  }
+  // }
 
-  pswChange(event:any){
-    this.psw = event.target.value
-    console.log(this.psw);
+  // pswChange(event:any){
+  //   this.psw = event.target.value
+  //   console.log(this.psw);
     
-  }
+  // }
 
 }

@@ -1,19 +1,28 @@
-<form (ngSubmit)="register()">
+<form (ngSubmit)="register()" [formGroup]="registerForm">
     <div class="register">
 
 
 
-        <div class="register_form" >
+        <div class="register_form">
             <h2>Register</h2>
 
-            <input id="user" name="uname" [(ngModel)]="uname" type="text" placeholder="Enter Username">
+            <input id="user" name="uname" formControlName="uname" type="text" placeholder="Enter Username">
             <br>
+            <div class="pop" *ngIf="this.registerForm.get('uname')?.errors && this.registerForm.get('uname')?.touched ">
+                <p class="text-danger text-start ms-1  ">Invalid Username</p>
+            </div>
             <!-- <input id="acid" name="acno" (change)="acnoChange($event)" type="text" [placeholder] = data> -->
-            <input id="acid" name="acno" [(ngModel)]="acno" type="text" placeholder="Enter Account Number ">
+            <input id="acid" name="acno" formControlName="acno" type="text" placeholder="Enter Account Number ">
             <br>
+            <div class="pop" *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched ">
+                <p class="text-danger text-start ms-1  ">Invalid Account Number</p>
+            </div>
             <!-- <input id="pid" name="pwd" (change)="pswChange($event)" type="password" placeholder="Enter password"> -->
-            <input id="pid" name="psw" [(ngModel)]="psw" type="password" placeholder="Enter password">
+            <input id="pid" name="psw" formControlName="psw" type="password" placeholder="Enter password">
             <br>
+            <div class="pop" *ngIf="this.registerForm.get('psw')?.errors && this.registerForm.get('psw')?.touched ">
+                <p class="text-danger text-start ms-1  ">Invalid Password</p>
+            </div>
             <button type="submit">Register</button>
             <br>
         </div>

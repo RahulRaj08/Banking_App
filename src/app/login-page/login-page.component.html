@@ -1,4 +1,4 @@
-<form (ngSubmit)="login()">
+<form (ngSubmit)="login()" [formGroup]="loginForm">
 
     <!-- <div>
         <h1>{{aim}}</h1>
@@ -12,11 +12,17 @@
             <h2>Login</h2>
 
             <!-- <input id="acid" name="acno" (change)="acnoChange($event)" type="text" [placeholder] = data> -->
-            <input id="acid" name="acno" [(ngModel)]="acno"  type="text" [placeholder] = data>
+            <input id="acid" name="acno" formControlName="acno"  type="text" [placeholder] = data>
             <br>
+            <div class="pop" *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched ">
+                <p class="text-danger text-start ms-1  ">Invalid Account Number</p>
+            </div>
             <!-- <input id="pid" name="pwd" (change)="pswChange($event)" type="password" placeholder="Enter password"> -->
-            <input id="pid" name="pwd" [(ngModel)]="psw" type="password" placeholder="Enter password">
+            <input id="pid" name="pwd" formControlName="psw"  type="password" placeholder="Enter password">
             <br>
+            <div class="pop" *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched ">
+                <p class="text-danger text-start ms-1  ">Invalid Password</p>
+            </div>
             <button type="submit" >Login</button>
             <br>
             <a routerLink="register">Register Here</a>

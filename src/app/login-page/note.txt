@@ -69,9 +69,75 @@ ANGULAR DIRECTIVES
 
     -ngFor: can be applied in html to access elements from array ( using for loop)
 
-
+    -ngIf - to apply if condition directly in html
 
 
 * Forms can be created in two ways in angular:
     1. Template driven form 
-    2. Model Driven form(easy to validate using inbuilt angular methods)   
+    2. Model Driven form(easy to validate using inbuilt angular methods)
+
+            -To create model driven form 'reactive form' technique is used
+            -To imply it "ReactiveForms" module is used to create model form   
+            -Form builder :- it is a class of ReactiveForms Module
+            
+            There are # important parts in a model form
+                -Group,Array,Control
+
+
+
+            -To connect a model to html, use [formGroup]="model name"
+
+
+
+            Steps to create model form
+                1.Import ReactiveFormsModel
+                2. Dep Inject 'FormBuilder' class to respecctive ts file     
+                3.Create Model Form: it contains 3 parts(grp,array,control)
+                4.link model to html page using formGroup
+                5.Connect each data to group using formControlName
+                6.Store variable name from array
+
+
+
+
+Validation Model Form
+---------------------
+
+class used : Validator(it is an inbuilt class that contains methods for validation) no dep injection needed
+
+methods:
+            -required: compulsary required data
+            -pattern: is for giving conditions for the field, i.e no of characters, numbers limit etc
+
+- rules are applied in the model forms created
+
+Steps for applying rules    
+    - rules are mentioned in the model form created
+    - to which variable the corresponding rule is required, it is specified in the array of that variable
+    -give class name Validator.'methodRequied'
+
+Rule for regular exp
+- [accpeting characters]{limit}
+- * implies 0- infinity
+- + implies 1-infinity    
+- ^ implies not 
+
+
+
+how to access each invalidate errors
+-----------------------------------
+
+-To access data from each field after validation: this.modelFormName.get('var name of the field')?.errors
+
+        -this will return a valid or invalid data
+        -if the data is valid - empty response
+        -invalid -content
+
+
+
+Local Storage in Angular
+---------------------
+
+- store localstorage.setItem()
+- access localstorage.getItem()
+-delete localstorage.removeItem()

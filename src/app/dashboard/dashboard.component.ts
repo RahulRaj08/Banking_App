@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { DataService } from 'services/data.service';
 
 @Component({
@@ -11,15 +12,24 @@ export class DashboardComponent {
 
   
   user=''
-  
+  acno:any
+  dateandtime:any
 
-  constructor(private ds:DataService, private fb:FormBuilder){ 
+  constructor(private ds:DataService, private fb:FormBuilder,private router:Router){ 
     this.user=this.ds.currentUser
+    this.dateandtime = new Date()
   }
 
   depositForm = this.fb.group({acno:['',[Validators.required,Validators.pattern('[0-9]+')]],psw:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]],amnt:['',[Validators.required,Validators.pattern('[0-9]+')]]})
   withdrawForm = this.fb.group({acno1:['',[Validators.required,Validators.pattern('[0-9]+')]],psw1:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]],amnt1:['',[Validators.required,Validators.pattern('[0-9]+')]]})
 
+  ngOnInit(): void{ //function in prevent user getting into dashboard by using back click
+    if(!localStorage.getItem('currentUser')){ // if current account not present... asks to enter details
+      alert('Please login first')
+      this.router.navigateByUrl('')
+    }
+  }
+  
 
   deposit(){
     var acno=this.depositForm.value.acno
@@ -65,13 +75,32 @@ export class DashboardComponent {
     }
 
     else{
-      alert('Invalid Form')
+      alert('Invalid Form');
     }
 
     
   
-
     
+  }
+
+  logout(){
+    localStorage.removeItem("currentUser")
+    localStorage.removeItem("currentAcno")
+
+    this.router.navigateByUrl('')
+  }
+
+
+  deleteConfirm(){
+
+    this.acno = JSON.parse(localStorage.getItem('currentAcno') || '')
+
+  }
+
+  oncancel(){
+
+    this.acno=''
+
   }
 
 }

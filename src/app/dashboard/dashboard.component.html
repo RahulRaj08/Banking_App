@@ -1,15 +1,30 @@
 <!-- <p>dashboard works!</p> -->
 
-<h1 class="username">Welcome {{user}}</h1>
-<div class="transaction">
-    <a routerLink="/transaction">View transaction history</a>
+<div class="topbar">
+    <div class="det">
+        <h1 class="username">Welcome {{user}}</h1>
+        <p style="color: rgb(20, 8, 84);">{{dateandtime |date : 'short'}}</p>
+        <div class="transaction">
+            <a routerLink="/transaction">View transaction history</a>
 
+        </div>
+    </div>
+    <div class="logout">
+        <button (click)=logout()  class="lgbtn" type="submit">Logout</button>
+        <br>
+        <button (click)="deleteConfirm()" class="lgbtn" type="submit">Delete</button>
+    </div>
+    
 </div>
 
+<!-- to share parent component witth child comp -->
+to share an event also, we should 
+
+<app-deleteconfirm (onCancel)="oncancel()" [item]="acno"></app-deleteconfirm>  
 
 
 <div class="dashboard">
-    <form (ngSubmit)="deposit()" [formGroup]="depositForm">
+    <form [ngClass]="acno?'style': ''" (ngSubmit)="deposit()" [formGroup]="depositForm">
         <div class="deposit">
             <h2>Deposit</h2>
 
@@ -33,26 +48,26 @@
     </form>
 
 
-    <form (ngSubmit)="withdraw()" [formGroup]="withdrawForm">
-    <div class="withdraw">
-        <h2>Withdraw</h2>
+    <form [ngClass]="acno?'style': ''" (ngSubmit)="withdraw()" [formGroup]="withdrawForm">
+        <div class="withdraw">
+            <h2>Withdraw</h2>
 
-        <input type="text" name="acnum" formControlName="acno1" id="acnid" placeholder="Enter Account Number">
-        <br>
-        <div class="pop" *ngIf="this.withdrawForm.get('acno1')?.errors && this.withdrawForm.get('acno1')?.touched ">
-            <p class="text-danger text-start ms-1  ">Invalid Account Number</p>
+            <input type="text" name="acnum" formControlName="acno1" id="acnid" placeholder="Enter Account Number">
+            <br>
+            <div class="pop" *ngIf="this.withdrawForm.get('acno1')?.errors && this.withdrawForm.get('acno1')?.touched ">
+                <p class="text-danger text-start ms-1  ">Invalid Account Number</p>
+            </div>
+            <input type="password" name="pswd" formControlName="psw1" id="pwid" placeholder="Enter password">
+            <br>
+            <div class="pop" *ngIf="this.withdrawForm.get('psw1')?.errors && this.withdrawForm.get('psw1')?.touched ">
+                <p class="text-danger text-start ms-1  ">Invalid Password</p>
+            </div>
+            <input type="text" name="amnt" formControlName="amnt1" id="amid" placeholder="Enter amount to deposit">
+            <br>
+            <div class="pop" *ngIf="this.withdrawForm.get('amnt1')?.errors && this.withdrawForm.get('amnt1')?.touched ">
+                <p class="text-danger text-start ms-1  ">Enter correct amount</p>
+            </div>
+            <button type="submit">Withdraw</button>
         </div>
-        <input type="password" name="pswd"formControlName="psw1" id="pwid" placeholder="Enter password">
-        <br>
-        <div class="pop" *ngIf="this.withdrawForm.get('psw1')?.errors && this.withdrawForm.get('psw1')?.touched ">
-            <p class="text-danger text-start ms-1  ">Invalid Password</p>
-        </div>
-        <input type="text" name="amnt" formControlName="amnt1" id="amid" placeholder="Enter amount to deposit">
-        <br>
-        <div class="pop" *ngIf="this.withdrawForm.get('amnt1')?.errors && this.withdrawForm.get('amnt1')?.touched ">
-            <p class="text-danger text-start ms-1  ">Enter correct amount</p>
-        </div>
-        <button type="submit">Withdraw</button>
-    </div>
     </form>
 </div>

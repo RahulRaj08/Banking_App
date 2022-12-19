@@ -83,4 +83,22 @@ a{
 
 .pop{
     font-size: 13px;
+
+}
+
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.lgbtn{
+    width: 100px;
+    background-color: red;
+    color: white;
+}
+
+.logout{
+    padding: 10px;
 }

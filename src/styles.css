@@ -13,3 +13,7 @@ body{
     background-image: url("./assets/glass-effect-banking-card-with-flowing-realistic-geometry-elements-dark-background_87561-588.webp");
     background-size: cover;
 }
+
+.style{
+    opacity: 0;
+}

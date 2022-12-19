@@ -63,7 +63,7 @@ How to create a Services
 
 
 
-ANGULAR DIRECTIVES
+ANGULAR DIRECTIVES  --- They are used to manage DOM in angular
 
 1. Structural Directives : they are used to handle structured datas(array,object) in view(html) of a component
 
@@ -71,6 +71,10 @@ ANGULAR DIRECTIVES
 
     -ngIf - to apply if condition directly in html
 
+2. Component DIRECTIVES
+
+3.Attribute Directive ----------- To apply Attribute to DOM
+    -ngClass
 
 * Forms can be created in two ways in angular:
     1. Template driven form 
@@ -141,3 +145,52 @@ Local Storage in Angular
 - store localstorage.setItem()
 - access localstorage.getItem()
 -delete localstorage.removeItem()
+
+
+sharing parent component with child 
+----------------------------------
+- is by using selector given in parent
+- [variable]="data to be passed"
+
+
+
+How to hide Component
+---------------------
+
+1. Take div/form of html comp to be hidden
+2. Give a class and make opacity 0 
+3. Use Attribute Directive to call class only when needed
+
+
+
+Date and Time in Angular
+-----------------------
+
+To get date, use Date class and create an object
+
+
+
+
+How to create an userdefined event
+---------------------
+
+-It is created by creating an object of EventEmitter class
+-After creation, we should emit an event, i.e Start the event
+
+
+
+Decorators
+- @Input() Parent to child data sharing
+- @Output() Child to parent data sharing
+
+- these data can only be shared
+
+
+Angular pipe
+------------
+
+- It is used to transform data from one type to another
+- eg: Date pipe
+
+
+To install node module while cloning: npm i 

@@ -16,7 +16,10 @@ export class DashboardComponent {
   dateandtime:any
 
   constructor(private ds:DataService, private fb:FormBuilder,private router:Router){ 
-    this.user=this.ds.currentUser
+    if(localStorage.getItem('currentUser')){
+      this.user=JSON.parse(localStorage.getItem('currentUser') || ' ')
+    }
+    
     this.dateandtime = new Date()
   }
 
@@ -24,7 +27,7 @@ export class DashboardComponent {
   withdrawForm = this.fb.group({acno1:['',[Validators.required,Validators.pattern('[0-9]+')]],psw1:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]],amnt1:['',[Validators.required,Validators.pattern('[0-9]+')]]})
 
   ngOnInit(): void{ //function in prevent user getting into dashboard by using back click
-    if(!localStorage.getItem('currentUser')){ // if current account not present... asks to enter details
+    if(!localStorage.getItem('token')){ // if current account not present... asks to enter details
       alert('Please login first')
       this.router.navigateByUrl('')
     }
@@ -38,16 +41,14 @@ export class DashboardComponent {
 
     if(this.depositForm.valid){
 
-      const result = this.ds.deposit(acno,psw,amnt)
+      this.ds.deposit(acno,psw,amnt).subscribe((result:any)=>{
+        alert(`${amnt} credited to your account and the balance is ${result.message}`)
+      },
+      result=>{
+        alert(result.error.message)
+      })
 
-    if(result){
-      alert(`${amnt} credited to your account and your balance is ${result}`)
-
-    }
-    else{
-      alert('incorrect acno or password')
-    }
-
+    
     }
     else{
       alert('invalid form')
@@ -65,12 +66,12 @@ export class DashboardComponent {
 
     if(this.withdrawForm.valid){
 
-      const result = this.ds.withdraw(acno1,psw1,amnt1)
-
-      if(result){
-        alert(`${amnt1} debited from your account and your balance is ${result}`)
-  
-      }
+      this.ds.withdraw(acno1,psw1,amnt1).subscribe((result:any)=>{
+        alert(`${amnt1} debited from your account and the balance is ${result.message}`)
+      },
+      result=>{
+        alert(result.error.message)
+      })
 
     }
 
@@ -86,7 +87,7 @@ export class DashboardComponent {
   logout(){
     localStorage.removeItem("currentUser")
     localStorage.removeItem("currentAcno")
-
+    localStorage.removeItem("token")
     this.router.navigateByUrl('')
   }
 
@@ -101,6 +102,18 @@ export class DashboardComponent {
 
     this.acno=''
 
+  }
+
+  delete(event:any){
+    this.ds.deleteacc(event).subscribe((result:any)=>{
+      alert(result.message)
+      this.logout()
+      
+    },
+    result=>{
+      alert(result.error.message)
+    })
+    
   }
 
 }

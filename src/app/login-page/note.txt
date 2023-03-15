@@ -194,3 +194,50 @@ Angular pipe
 
 
 To install node module while cloning: npm i 
+
+
+
+ANGULAR SERVER INTERGRATION / FRONTEND - BACKEND INTERGRATION
+-------------------------------------------------------------
+
+CORS :-  It is the module used for client server INTERGRATION
+
+
+
+CLIENT SERVER INTERGRATION
+--------------------------
+
+Module:- HttpClientModule
+Class:- HttpClient
+
+
+Asynchronous request in JS
+--------------------------
+
+promise   --resolve  then()
+          --reject   catch()
+
+
+Asynchronous request in TS
+--------------------------
+
+observable  --resolve  subscribe()
+            --reject   catch()
+
+    -Rxjs(reactive extension for js) is a library used to solve asynchronous code in ts     
+
+
+
+
+Append token in headers of a request:
+------------------------------------
+
+ -Create a header: To create a header use HttpHeaders class, 
+                   then use an object of the class
+                   let headers = new HttpHeaders()
+  -Append token to object: headers.append('access-token',token)
+
+
+
+
+1.LOGIN: explain

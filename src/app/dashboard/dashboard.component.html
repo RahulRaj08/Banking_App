@@ -3,24 +3,30 @@
 <div class="topbar">
     <div class="det">
         <h1 class="username">Welcome {{user}}</h1>
-        <p style="color: rgb(20, 8, 84);">{{dateandtime |date : 'short'}}</p>
+        <p style="color: white;">{{dateandtime |date : 'short'}}</p>
         <div class="transaction">
             <a routerLink="/transaction">View transaction history</a>
 
         </div>
     </div>
     <div class="logout">
-        <button (click)=logout()  class="lgbtn" type="submit">Logout</button>
-        <br>
-        <button (click)="deleteConfirm()" class="lgbtn" type="submit">Delete</button>
+        <button (click)="deleteConfirm()" class="lgbtn btn btn-primary" type="submit">Delete Acc</button>
+
+
+        <button (click)=logout()  class="lgbtn btn btn-primary" type="submit">Logout</button>
+        
+        
     </div>
+
+
     
 </div>
 
 <!-- to share parent component witth child comp -->
-to share an event also, we should 
+<!-- to share an event also, we should  -->
 
-<app-deleteconfirm (onCancel)="oncancel()" [item]="acno"></app-deleteconfirm>  
+<app-deleteconfirm (onDelete)="delete($event)" (onCancel)="oncancel()" [item]="acno"></app-deleteconfirm>  
+  
 
 
 <div class="dashboard">
@@ -43,7 +49,7 @@ to share an event also, we should
             <div class="pop" *ngIf="this.depositForm.get('amnt')?.errors && this.depositForm.get('amnt')?.touched ">
                 <p class="text-danger text-start ms-1  ">Enter correct amount</p>
             </div>
-            <button type="submit">Deposit</button>
+            <button type="submit" class="submit">Deposit</button>
         </div>
     </form>
 
@@ -67,7 +73,7 @@ to share an event also, we should
             <div class="pop" *ngIf="this.withdrawForm.get('amnt1')?.errors && this.withdrawForm.get('amnt1')?.touched ">
                 <p class="text-danger text-start ms-1  ">Enter correct amount</p>
             </div>
-            <button type="submit">Withdraw</button>
+            <button class="submit" type="submit">Withdraw</button>
         </div>
     </form>
 </div>

@@ -10,10 +10,10 @@
 
 .dashboard{
     display: flex;
-    flex-direction: column;
-    justify-content:center;
+    flex-direction: row;
+    justify-content:space-evenly;
     align-items: center;
-    height: 100vh;
+    height: 70vh;
     text-align: center;
 }
 
@@ -24,6 +24,7 @@
     font-size: 25px;
     background-color: #fff;
     color: #ffffff;
+    /* margin-right: 20px; */
 }
 
 
@@ -62,15 +63,16 @@ h2{
     font-size: 25px;
     background-color: #fff;
     color: #ffffff;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .username{
-    color: rgb(8, 98, 98);
+    color: rgb(255, 255, 255);
 }
 
 .transaction{
     padding: 10px;
+    padding-left: 4px;
     text-decoration: none;
     /* background-color: aqua; */
 
@@ -78,6 +80,7 @@ h2{
 
 a{
     text-decoration: none;
+    /* color: white; */
     
 }
 
@@ -90,15 +93,31 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* background-color: brown; */
+    padding-inline: 1%;
+    padding-top: 1%;
+}
+
+.det p{
+    margin-left: 5px;
 }
 
 
 .lgbtn{
-    width: 100px;
-    background-color: red;
-    color: white;
+    width: 120px;
+    /* background-color: goldenrod; */
+    color: rgb(255, 255, 255);
 }
 
 .logout{
-    padding: 10px;
+    /* padding: 50px; */
+    display: flex;
+    justify-content: space-between;
+    /* background-color: aqua; */
+    width: 260px;
+}
+
+.submit{
+    background-color: goldenrod;
+    color: #fff;
 }

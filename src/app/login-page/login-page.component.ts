@@ -14,17 +14,6 @@ export class LoginPageComponent {
 
   data = "Enter your account number: "
 
-  
- 
-  userDetails:any = {
-    1000:{acno:1000,username:"rahul",password:123, balance:0},
-    1001:{acno:1001,username:"amal",password:123,  balance:0},
-    1002:{acno:1002,username:"arun",password:123,  balance:0},
-    1003:{acno:1003,username:"gwen",password:123,  balance:0},
-    1004:{acno:1004,username:"MJ",password:123, balance:0},
-  }
- 
-
   constructor(private router:Router, private ds:DataService,private fb:FormBuilder){ }
 
   loginForm = this.fb.group({acno:['',[Validators.required,Validators.pattern('[0-9]+')]],psw:['',[Validators.required,Validators.pattern('[0-9]+')]]}) //modelForm
@@ -36,17 +25,20 @@ export class LoginPageComponent {
     
     if(this.loginForm.valid){
 
-      const result = this.ds.login(acno,psw)
-
-
-      if(result){
-        alert("login successful")
+      this.ds.login(acno,psw).subscribe((result:any)=>{
+        localStorage.setItem('currentAcno',JSON.stringify(result.currentAcno))
+        localStorage.setItem('currentUser',JSON.stringify(result.currentUser))
+        localStorage.setItem('token',JSON.stringify(result.token))
+        alert(result.message)
         this.router.navigateByUrl('dashboard')
-      }
-      else{
-        alert('incorrect username or password')
-      }
-  
+      },
+      result=>{
+        alert(result.error.message)
+
+      })
+
+
+
 
     }
     else{

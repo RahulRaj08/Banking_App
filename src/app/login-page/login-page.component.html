@@ -1,9 +1,14 @@
 <form (ngSubmit)="login()" [formGroup]="loginForm">
 
+    <div class="heading">
+        <h1>Oscorp Bank</h1>
+        <p> <i>The Next Gen Banking Experience</i></p>
+      </div>
+
     <!-- <div>
         <h1>{{aim}}</h1>
     </div> -->
-    <h1 style="color: white;">{{aim}}</h1>
+    <!-- <h1 style="color: white;">{{aim}}</h1> -->
     <div class="login">
 
         
@@ -23,9 +28,9 @@
             <div class="pop" *ngIf="this.loginForm.get('psw')?.errors && this.loginForm.get('psw')?.touched ">
                 <p class="text-danger text-start ms-1  ">Invalid Password</p>
             </div>
-            <button type="submit" >Login</button>
+            <button class="btn btn-primary" type="submit" >Login</button>
             <br>
-            <a routerLink="register">Register Here</a>
+            <a style="color:red" routerLink="register">Register Here</a>
         </div>
     </div>
 </form>
